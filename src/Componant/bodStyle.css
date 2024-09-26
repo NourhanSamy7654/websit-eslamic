@@ -1,0 +1,17 @@
+.iframe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.iframe-container iframe {
+  width: 100%;
+  height: 315px;
+}
+
+.iframe-container button {
+  margin-top: 10px; /* Adjust the space between iframe and button */
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px;
+}

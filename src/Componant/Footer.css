@@ -1,0 +1,19 @@
+.mb-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  background-color: white; /* Set the footer background color */
+}
+.mb-4 a i:hover{
+    color: rgb(27, 77, 215);
+}
+footer .text-reset {
+  color: rgb(27, 27, 166); /* Set the icon color */
+}
+
+footer .text-reset:hover {
+  color: gray; /* Change icon color on hover */
+}
+footer{
+  background-color: white;
+}

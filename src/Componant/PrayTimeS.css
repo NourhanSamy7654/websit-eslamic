@@ -1,0 +1,19 @@
+.animated-table {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.current-time, .next-prayer {
+    color: #fff; /* تغيير لون النص */
+    background-color: #12346b; /* لون خلفية مناسب */
+    padding: 10px;
+    border-radius: 5px;
+}
