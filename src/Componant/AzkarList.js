@@ -28,11 +28,10 @@ function AzkarList() {
       <h1
         className="display-4 text-center fw-bold mb-4 heading-azkar"
         style={{
-          color: "white",
           paddingBottom: "50px",
 
-          marginTop: "0px", // To move the word "أذكار" away from the top
-          textShadow: "2px 2px 10px rgba(0, 0, 0, 0.7)", // Adds a shadow for a glowing effect
+          marginTop: "0px",
+          textShadow: "2px 2px 10px rgba(0, 0, 0, 0.7)",
         }}
       >
         أذكار

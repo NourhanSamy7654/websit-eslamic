@@ -3,9 +3,12 @@ import "./Footer.css"; // You can create a CSS file for additional styling
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-center text-lg-start">
-      <div className="container p-4" style={{ backgroundColor: "white" }}>
-        <section className="mb-4">
+    <footer
+      className="text-center text-lg-start text-white"
+      style={{ backgroundColor: "darkblue" }}
+    >
+      <div className="container p-4">
+        <section className="mb-5">
           <a
             href="https://www.facebook.com/profile.php?id=100047265457023&mibextid=ZbWKwL"
             target="_blank"

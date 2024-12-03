@@ -1,7 +1,7 @@
 /* Com.css */
 .navbar {
   width: 100%;
-  z-index: 1000; /* Ensures the navbar stays on top of other elements */
+  z-index: 1000;
   font-size: 20px;
 }
 
@@ -14,13 +14,10 @@
 }
 
 .navbar-transparent {
-  background-color: rgba(255, 255, 255, 0); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Optional blur effect for the background */
-  transition: background-color 0.3s ease-in-out;
+  background: transparent !important;
 }
 .navbar .navbar-brand {
-  
-text-transform: uppercase;
+  text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
     #231557 0%,
@@ -39,79 +36,85 @@ text-transform: uppercase;
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-      font-size: 40px;
+  font-size: 40px;
 }
 @keyframes textclip {
   to {
     background-position: 200% center;
   }
 }
+
 .navbar .navbar-brand:hover {
-  color: #00ffcc; /* Change color on hover */
-  text-decoration: none; /* Remove any underline on hover */
+  color: #34626c;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
-.navbar .nav-link, .navbar .navbar-brand {
-  color: #fff; /* White text for better visibility on transparent background */
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: black;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.navbar .nav-link:hover, .navbar:hover {
-  color: #00ffcc; /* Hover color effect */
-}
-
-/* Add some padding to the top of the body to account for the fixed navbar */
-body {
-  padding-top: 70px; /* Adjust as necessary */
+.navbar .nav-link:hover {
+  color: #34626c;
+  border: 1px solid rgb(42, 55, 61);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 /***************************************setion hooooooooooooooome************************/
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
 }
 
 .hero-section {
-    background-image: url('https://deih43ym53wif.cloudfront.net/blue-mosque-glorius-sunset-istanbul-sultan-ahmed-turkey-shutterstock_174067919.jpg_1404e76369.jpg');
-    background-size: cover;
-    /* background-position: center;
-    height: 100vh;
-   
-    scroll-behavior: smooth; */
-    background-position: center;
+  background-image: url("https://deih43ym53wif.cloudfront.net/blue-mosque-glorius-sunset-istanbul-sultan-ahmed-turkey-shutterstock_174067919.jpg_1404e76369.jpg");
+  background-size: cover;
+
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* هذه الخاصية تجعل الصورة تتحرك ببطء مع التمرير */
-  height: 100vh; /* ليغطي كامل شاشة العرض */
+  background-attachment: fixed;
+  height: 100vh;
   position: relative;
-   display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    margin: 0; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  margin: 0;
 }
 
 .container {
-    padding: 20px; /* Optional: add padding if you want space inside */
-   
+  padding: 20px; /* Optional: add padding if you want space inside */
 }
 
 .hero-section h1 {
-    font-size: 3rem;
-    font-weight: bold;
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 .hero-section p {
-    font-size: 1.5rem;
-    margin: 20px 0;
+  font-size: 1.5rem;
+  margin: 20px 0;
 }
 
 .hero-section .btn {
-    font-size: 1.25rem;
-    padding: 10px 30px;
-} 
+  font-size: 1.25rem;
+  padding: 10px 30px;
+}
 /**** stye sura**********************************/
 .modal-backdrop {
   opacity: 0.5 !important;
@@ -122,7 +125,6 @@ html, body {
   overflow-y: auto;
 }
 
-/**********************************************************dark and ligt mode******/
 :root {
   --hue: 223;
   --bg: hsl(var(--hue), 10%, 100%);
@@ -142,86 +144,7 @@ html, body {
   height: 50px;
   width: auto;
 }
-
-.nav-link {
-  color: var(--fg);
-  font-weight: bold;
-  font-size: 1.1rem;
+.btn-primary {
+  color: #2c3e50;
+  background-color: #f5f5f5;
 }
-
-.nav-link:hover {
-  color: var(--primary);
-}
-
-/* Dark Mode Toggle */
-.theme {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.theme-label-light,
-.theme-label-dark {
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin: 0 5px;
-}
-
-.theme__toggle-wrap {
-  position: relative;
-  width: 40px;
-  height: 20px;
-}
-
-.theme__toggle {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: hsl(48, 90%, 85%);
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color var(--transDur);
-  appearance: none;
-}
-
-.theme__toggle:before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 16px;
-  height: 16px;
-  background-color: hsl(48, 90%, 55%);
-  border-radius: 50%;
-  transition: transform var(--transDur);
-}
-
-.theme__toggle:checked {
-  background-color: hsl(198, 90%, 15%);
-}
-
-.theme__toggle:checked:before {
-  transform: translateX(20px);
-  background-color: hsl(198, 90%, 55%);
-}
-
-/* Sun/Moon Icon Parts */
-.theme__icon {
-  position: relative;
-  width: 1em;
-  height: 1em;
-}
-
-.theme__icon-part {
-  position: absolute;
-  width: 0.3em;
-  height: 0.3em;
-  background-color: white;
-  border-radius: 50%;
-}
-
-.theme__icon-part:nth-child(1) {
-  transform: translate(0.4em, -0.4em);
-}
-
-/* Add similar styles for other parts */

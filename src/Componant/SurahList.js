@@ -38,10 +38,7 @@ const SurahList = () => {
 
   return (
     <div className="container mt-5">
-      <h1
-        className="text-center"
-        style={{ padding: "20px", fontSize: "60px", color: "white" }}
-      >
+      <h1 className="text-center" style={{ padding: "20px", fontSize: "60px" }}>
         القراءن الكريم
       </h1>
       <div className="row">

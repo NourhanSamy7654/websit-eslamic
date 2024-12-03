@@ -27,7 +27,7 @@ function App() {
     }
   };
   return (
-    <div style={{ backgroundColor: "black" }}>
+    <div>
       <BrowserRouter>
         <Navbar
           scrollToSection={scrollToSection}

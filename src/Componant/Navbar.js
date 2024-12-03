@@ -9,6 +9,7 @@ function Navbar({
   homeRef,
   bocastRef,
 }) {
+  
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-transparent">
       <div className="container-fluid">
@@ -78,6 +79,7 @@ function Navbar({
                 بودكاست
               </a>
             </li>
+            <li className="nav-item"></li>
           </ul>
         </div>
       </div>
