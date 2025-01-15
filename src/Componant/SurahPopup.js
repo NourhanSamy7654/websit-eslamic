@@ -1,4 +1,5 @@
 import React from "react";
+import "./Com.css"; // تأكد من إضافة التعديلات في ملف CSS
 
 const SurahPopup = ({ surah, closePopup }) => {
   return (
@@ -20,10 +21,17 @@ const SurahPopup = ({ surah, closePopup }) => {
           </div>
           <div className="modal-body">
             <div className="ayat-container">
-              {surah.verses.map((verse) => (
-                <p key={verse.number}>
-                  <strong>({verse.number})</strong> - {verse.text}
-                </p>
+              {/* هنا نعرض "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ" في سطر منفصل */}
+              <p className="bismillah">
+                بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+              </p>
+
+              {/* عرض الآيات مع رقم الآية بعد النص */}
+              {surah.verses.map((verse, index) => (
+                <div key={verse.number} className="verse-item">
+                  <span className="ayat">{verse.text}</span>
+                  <span className="verse-number"> ({verse.number})</span>
+                </div>
               ))}
             </div>
           </div>

@@ -124,6 +124,38 @@ body {
   max-height: 300px;
   overflow-y: auto;
 }
+/* style in ayate */
+/* تنسيق الآية "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ" */
+.bismillah {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Amiri", serif; /* استخدام خط عربي مناسب */
+}
+
+/* تنسيق الآيات الأخرى */
+.ayat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  direction: rtl;
+}
+
+/* تنسيق الآية نفسها */
+.verse-item {
+  font-size: 22px;
+  text-align: right;
+  font-family: "Amiri", serif; /* استخدام خط مناسب للآيات */
+}
+
+/* رقم الآية يأتي بعد النص */
+.verse-number {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10px;
+}
 
 :root {
   --hue: 223;
