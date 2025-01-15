@@ -49,7 +49,6 @@ function App() {
             <AzkarList />
           </section>
 
-          {/* Surah Section */}
           <section ref={surahRef}>
             <SurahList />
           </section>
