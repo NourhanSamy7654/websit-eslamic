@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/websit-eslamic/static/css/main.c8e68597.css",
-    "main.js": "/websit-eslamic/static/js/main.193992b9.js",
+    "main.js": "/websit-eslamic/static/js/main.f87316a5.js",
     "static/js/453.61acdd16.chunk.js": "/websit-eslamic/static/js/453.61acdd16.chunk.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/websit-eslamic/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/websit-eslamic/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
@@ -11,11 +11,11 @@
     "static/media/img1.png": "/websit-eslamic/static/media/img1.3467b2598f410073c76c.png",
     "index.html": "/websit-eslamic/index.html",
     "main.c8e68597.css.map": "/websit-eslamic/static/css/main.c8e68597.css.map",
-    "main.193992b9.js.map": "/websit-eslamic/static/js/main.193992b9.js.map",
+    "main.f87316a5.js.map": "/websit-eslamic/static/js/main.f87316a5.js.map",
     "453.61acdd16.chunk.js.map": "/websit-eslamic/static/js/453.61acdd16.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c8e68597.css",
-    "static/js/main.193992b9.js"
+    "static/js/main.f87316a5.js"
   ]
 }
