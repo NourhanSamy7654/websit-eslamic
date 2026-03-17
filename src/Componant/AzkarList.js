@@ -11,12 +11,19 @@ function AzkarList() {
   };
 
   const handleCountUp = (index) => {
+    if (!selectedAzkar) {
+      return;
+    }
+
+    const countKey = `${selectedAzkar}-${index}`;
+    const targetCount = Number(azkarData[selectedAzkar][index].count) || 0;
+
     setCounts((prevCounts) => {
       const newCounts = { ...prevCounts };
-      const currentCount = newCounts[index] || 0;
+      const currentCount = newCounts[countKey] || 0;
 
-      if (currentCount < azkarData[selectedAzkar][index].count) {
-        newCounts[index] = currentCount + 1;
+      if (currentCount < targetCount) {
+        newCounts[countKey] = currentCount + 1;
       }
 
       return newCounts;
@@ -24,24 +31,19 @@ function AzkarList() {
   };
 
   return (
-    <div className="container mt-4 text-center">
-      <h1
-        className="display-4 text-center fw-bold mb-4 heading-azkar"
-        style={{
-          paddingBottom: "50px",
+    <section className="container mt-5 azkar-section" dir="rtl">
+      <h1 className="section-title azkar-title text-center">الأذكار</h1>
+      <p className="section-subtitle text-center">
+        اختر التصنيف الذي تريد قراءته ثم تابع العدّاد بسهولة
+      </p>
 
-          marginTop: "0px",
-          textShadow: "2px 2px 10px rgba(0, 0, 0, 0.7)",
-        }}
-      >
-        أذكار
-      </h1>
-
-      <div className="mb-3">
+      <div className="azkar-categories">
         {Object.keys(azkarData).map((azkarCategory) => (
           <button
             key={azkarCategory}
-            className="btn btn-outline-primary mx-2 mb-2 animate-btn"
+            className={`btn azkar-category-btn ${
+              selectedAzkar === azkarCategory ? "active" : ""
+            }`}
             onClick={() => handleAzkarClick(azkarCategory)}
           >
             {azkarCategory}
@@ -50,35 +52,46 @@ function AzkarList() {
       </div>
 
       {selectedAzkar && (
-        <div>
-          <h2 className="mb-4">{selectedAzkar}</h2>
+        <div className="azkar-content-wrap">
+          <h2 className="azkar-selected-title">{selectedAzkar}</h2>
           {azkarData[selectedAzkar].map((azkar, index) => (
-            <div
-              key={index}
-              className="card mb-3 shadow-lg p-3 bg-white rounded"
-            >
+            <div key={`${selectedAzkar}-${index}`} className="azkar-card">
               <div className="card-body">
-                <p className="card-text">{azkar.content}</p>
-                <p className="card-text text-muted">{azkar.description}</p>
+                <p className="card-text azkar-content">{azkar.content}</p>
+                {azkar.description && (
+                  <p className="card-text text-muted azkar-description">
+                    {azkar.description}
+                  </p>
+                )}
+                {azkar.reference && (
+                  <p className="azkar-reference">المصدر: {azkar.reference}</p>
+                )}
 
-                <p>
-                  Recitations: <strong>{counts[index] || 0}</strong> /{" "}
-                  {azkar.count}
+                <p className="azkar-recitation">
+                  التكرار: <strong>{counts[`${selectedAzkar}-${index}`] || 0}</strong> /{" "}
+                  {Number(azkar.count) || 0}
                 </p>
 
                 <button
-                  className="btn btn-success animate-recite-btn"
+                  className="btn azkar-count-btn"
                   onClick={() => handleCountUp(index)}
-                  disabled={(counts[index] || 0) >= azkar.count}
+                  disabled={
+                    (counts[`${selectedAzkar}-${index}`] || 0) >=
+                    (Number(azkar.count) || 0)
+                  }
                 >
-                  Count
+                  تم الذكر
                 </button>
               </div>
             </div>
           ))}
         </div>
       )}
-    </div>
+
+      {!selectedAzkar && (
+        <p className="azkar-status text-center">ابدأ باختيار نوع الأذكار من الأعلى</p>
+      )}
+    </section>
   );
 }
 

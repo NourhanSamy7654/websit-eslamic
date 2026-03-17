@@ -1,42 +1,43 @@
 import React from "react";
-import "./Footer.css"; // You can create a CSS file for additional styling
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer
-      className="text-center text-lg-start text-white"
-      style={{ backgroundColor: "darkblue" }}
-    >
-      <div className="container p-4">
-        <section className="mb-5">
+    <footer className="site-footer" dir="rtl">
+      <div className="container site-footer-inner">
+        <p className="footer-title">حصن المسلم</p>
+
+        <section className="footer-social" aria-label="روابط التواصل الاجتماعي">
           <a
             href="https://www.facebook.com/profile.php?id=100047265457023&mibextid=ZbWKwL"
             target="_blank"
             rel="noopener noreferrer"
-            className="me-4 text-reset"
+            className="footer-icon-link"
+            aria-label="Facebook"
           >
-            <i className="fa fa-facebook-f fa-lg" aria-hidden="true"></i>
+            <i className="fa fa-facebook-f" aria-hidden="true"></i>
           </a>
           <a
             href="https://www.linkedin.com/in/nourhan-samy-4a6794237"
             target="_blank"
             rel="noopener noreferrer"
-            className="me-4 text-reset"
+            className="footer-icon-link"
+            aria-label="LinkedIn"
           >
-            <i className="fa fa-linkedin fa-lg" aria-hidden="true"></i>
+            <i className="fa fa-linkedin" aria-hidden="true"></i>
           </a>
           <a
             href="#/"
             target="_blank"
             rel="noopener noreferrer"
-            className="me-4 text-reset"
+            className="footer-icon-link"
+            aria-label="YouTube"
           >
-            <i className="fa fa-youtube fa-lg" aria-hidden="true"></i>
+            <i className="fa fa-youtube" aria-hidden="true"></i>
           </a>
         </section>
-      </div>
-      <div className="text-center p-3">
-        © {new Date().getFullYear()} Eg nourhan samy. All Rights Reserved.
+
+        <p className="footer-copy">(c) {new Date().getFullYear()} Nourhan Samy. All Rights Reserved.</p>
       </div>
     </footer>
   );

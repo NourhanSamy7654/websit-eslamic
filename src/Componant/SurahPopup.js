@@ -1,47 +1,66 @@
 import React from "react";
-import "./Com.css"; // تأكد من إضافة التعديلات في ملف CSS
+import "./Com.css";
+
+const TEXT = {
+  bismillah: "\u0628\u0650\u0633\u0652\u0645\u0650 \u0671\u0644\u0644\u0651\u064e\u0647\u0650 \u0671\u0644\u0631\u0651\u064e\u062d\u0652\u0645\u064e\u0670\u0646\u0650 \u0671\u0644\u0631\u0651\u064e\u062d\u0650\u064a\u0645\u0650",
+  surahNumberPrefix: "\u0633\u0648\u0631\u0629 \u0631\u0642\u0645",
+  close: "\u0625\u063a\u0644\u0627\u0642",
+};
 
 const SurahPopup = ({ surah, closePopup }) => {
+  const surahNumber = surah.number_of_surah ?? surah.number;
+  const firstVerseText = surah.verses?.[0]?.text ?? "";
+  const hasBismillahInVerses =
+    firstVerseText.includes("\u0628\u0650\u0633\u0652\u0645\u0650") || firstVerseText.includes("\u0628\u0633\u0645");
+  const shouldShowBismillah = surahNumber !== 9 && !hasBismillahInVerses;
+
   return (
-    <div className="modal show d-block" tabIndex="-1" role="dialog">
-      <div className="modal-dialog" role="document">
+    <div
+      className="quran-modal modal show d-block"
+      tabIndex="-1"
+      role="dialog"
+      onClick={closePopup}
+    >
+      <div
+        className="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"
+        role="document"
+        onClick={(event) => event.stopPropagation()}
+      >
         <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">
-              Surah {surah.name} - {surah.name_translations.ar}
-            </h5>
+          <div className="modal-header quran-modal-header">
+            <div>
+              <h5 className="modal-title quran-modal-title">
+                {surah.name_translations?.ar} - {surah.name}
+              </h5>
+              <p className="quran-modal-meta mb-0">
+                {TEXT.surahNumberPrefix} {surahNumber}
+                {surah.place ? ` - ${surah.place}` : ""}
+              </p>
+            </div>
             <button
               type="button"
-              className="close"
+              className="btn-close btn-close-white"
               onClick={closePopup}
               aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
+            ></button>
           </div>
-          <div className="modal-body">
-            <div className="ayat-container">
-              {/* هنا نعرض "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ" في سطر منفصل */}
-              <p className="bismillah">
-                بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
-              </p>
 
-              {/* عرض الآيات مع رقم الآية بعد النص */}
-              {surah.verses.map((verse, index) => (
-                <div key={verse.number} className="verse-item">
-                  <span className="ayat">{verse.text}</span>
-                  <span className="verse-number"> ({verse.number})</span>
+          <div className="modal-body quran-modal-body">
+            <div className="quran-ayat-container">
+              {shouldShowBismillah && <p className="bismillah">{TEXT.bismillah}</p>}
+
+              {surah.verses?.map((verse) => (
+                <div key={verse.number} className="quran-verse">
+                  <span className="quran-verse-text">{verse.text}</span>
+                  <span className="quran-verse-number">{verse.number}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={closePopup}
-            >
-              Close
+
+          <div className="modal-footer quran-modal-footer">
+            <button type="button" className="btn quran-close-btn" onClick={closePopup}>
+              {TEXT.close}
             </button>
           </div>
         </div>

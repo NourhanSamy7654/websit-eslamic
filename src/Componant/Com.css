@@ -1,8 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&family=El+Messiri:wght@600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap");
+
+:root {
+  --brand-900: #0f3d3e;
+  --brand-800: #144f4d;
+  --brand-700: #1f6b63;
+  --brand-100: #ecf4f2;
+  --brand-050: #f9fdfb;
+  --accent-100: #fff3d6;
+  --accent-300: #d6b36a;
+  --accent-200: #f3dca7;
+  --text-main: #173234;
+}
+
+:root[data-bs-theme="dark"] {
+  --brand-900: #8dd8cd;
+  --brand-800: #74c9bc;
+  --brand-700: #2f8a80;
+  --brand-100: #0b1416;
+  --brand-050: #edf9f6;
+  --accent-300: #dec483;
+  --accent-200: #f0ddb1;
+  --text-main: #e6f3ef;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
 /* Com.css */
 .navbar {
   width: 100%;
   z-index: 1000;
-  font-size: 20px;
+  font-size: 1.05rem;
+  font-family: "Cairo", "Segoe UI", Tahoma, sans-serif;
 }
 
 .fixed-top {
@@ -10,64 +40,172 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: 10px 20px;
+  padding: 0.55rem 1rem;
 }
 
 .navbar-transparent {
-  background: transparent !important;
+  background: linear-gradient(
+    100deg,
+    rgba(15, 61, 62, 0.96),
+    rgba(31, 107, 99, 0.92)
+  ) !important;
+  border-bottom: 1px solid rgba(214, 179, 106, 0.25);
+  box-shadow: 0 8px 26px rgba(6, 31, 33, 0.22);
+  backdrop-filter: blur(8px);
 }
+
+.navbar .container-fluid {
+  column-gap: 2.4rem;
+}
+
 .navbar .navbar-brand {
-  text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #231557 0%,
-    #44107a 29%,
-    #ff1361 67%,
-    #fff800 100%
-  );
-  background-color: transparent;
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-  font-size: 40px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  color: var(--brand-050);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.25s ease, transform 0.25s ease;
+  margin-inline-end: 1.5rem;
 }
-@keyframes textclip {
-  to {
-    background-position: 200% center;
+
+.navbar .navbar-brand span {
+  line-height: 1.1;
+}
+
+.brand-title {
+  display: inline-block;
+  animation: brandPulse 3.8s ease-in-out infinite;
+}
+
+@keyframes brandPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    text-shadow: 0 0 0 rgba(243, 220, 167, 0);
+  }
+  50% {
+    transform: translateY(-2px);
+    text-shadow: 0 0 14px rgba(243, 220, 167, 0.55);
   }
 }
 
 .navbar .navbar-brand:hover {
-  color: #34626c;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  color: var(--accent-200);
+  transform: translateY(-1px);
 }
 
-.navbar .nav-link,
-.navbar .navbar-brand {
-  color: black;
+.navbar .navbar-brand img {
+  height: 46px;
+  width: 46px;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: rgba(255, 255, 255, 0.14);
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.26);
+}
+
+.navbar .nav-link {
+  color: var(--brand-050);
   font-weight: 600;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  margin-inline-start: 0.4rem;
+  transition: all 0.25s ease;
 }
 
-.navbar .nav-link:hover {
-  color: #34626c;
-  border: 1px solid rgb(42, 55, 61);
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+.navbar .nav-links-wrap {
+  column-gap: 1rem;
+}
+
+.navbar .nav-links-list {
+  gap: 0.15rem;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus-visible {
+  color: var(--accent-200);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(214, 179, 106, 0.45);
+}
+
+.navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(214, 179, 106, 0.25);
+}
+
+.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28249, 250, 247, 0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.theme-toggle-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(243, 220, 167, 0.4);
+  color: var(--brand-050);
+  background-color: rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+  padding: 0.42rem 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.theme-toggle-btn:hover,
+.theme-toggle-btn:focus {
+  color: var(--accent-200);
+  border-color: rgba(243, 220, 167, 0.68);
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.theme-toggle-btn i {
+  font-size: 1rem;
+}
+
+@media (max-width: 991.98px) {
+  .fixed-top {
+    padding: 0.45rem 0.7rem;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.2rem;
+    margin-inline-end: 0;
+  }
+
+  .navbar .navbar-collapse {
+    margin-top: 0.75rem;
+    background-color: rgba(11, 44, 46, 0.95);
+    border: 1px solid rgba(214, 179, 106, 0.25);
+    border-radius: 12px;
+    padding: 0.6rem;
+  }
+
+  .navbar .container-fluid {
+    column-gap: 0.75rem;
+  }
+
+  .navbar .nav-links-wrap {
+    column-gap: 0;
+  }
+
+  .navbar .nav-link {
+    margin-inline-start: 0;
+    margin-bottom: 0.35rem;
+    text-align: center;
+  }
+
+  .theme-toggle-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.35rem;
+  }
 }
 
 /***************************************setion hooooooooooooooome************************/
@@ -76,15 +214,15 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "Cairo", "Segoe UI", Tahoma, sans-serif;
+  background-color: var(--brand-100);
+  color: var(--text-main);
 }
 
 .hero-section {
   background-image: url("https://deih43ym53wif.cloudfront.net/blue-mosque-glorius-sunset-istanbul-sultan-ahmed-turkey-shutterstock_174067919.jpg_1404e76369.jpg");
   background-size: cover;
-
   background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100vh;
@@ -97,13 +235,30 @@ body {
   margin: 0;
 }
 
-.container {
-  padding: 20px; /* Optional: add padding if you want space inside */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 39, 41, 0.3),
+    rgba(10, 39, 41, 0.55)
+  );
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  background-color: rgba(7, 25, 27, 0.36);
+  border: 1px solid rgba(243, 220, 167, 0.25);
+  border-radius: 16px;
+  backdrop-filter: blur(3px);
 }
 
 .hero-section h1 {
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: 800;
 }
 
 .hero-section p {
@@ -115,68 +270,378 @@ body {
   font-size: 1.25rem;
   padding: 10px 30px;
 }
-/**** stye sura**********************************/
-.modal-backdrop {
-  opacity: 0.5 !important;
+
+/**** Shared section styles **********************************/
+.section-title {
+  font-family: "El Messiri", "Cairo", sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  color: var(--brand-900);
+  margin-bottom: 0.4rem;
 }
 
-.ayat-container {
-  max-height: 300px;
-  overflow-y: auto;
-}
-/* style in ayate */
-/* تنسيق الآية "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ" */
-.bismillah {
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
-  font-family: "Amiri", serif; /* استخدام خط عربي مناسب */
+.section-subtitle {
+  color: rgba(23, 50, 52, 0.8);
+  font-size: 1.05rem;
+  margin-bottom: 1.3rem;
 }
 
-/* تنسيق الآيات الأخرى */
-.ayat-container {
+/**** Azkar section **********************************/
+.azkar-section {
+  padding-top: 1rem;
+  padding-bottom: 1.2rem;
+}
+
+.azkar-title {
+  text-shadow: 0 5px 14px rgba(12, 56, 55, 0.15);
+}
+
+.azkar-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+}
+
+.azkar-category-btn {
+  border: 1px solid rgba(31, 107, 99, 0.35);
+  color: var(--brand-800);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  background-color: #f8fcfb;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.azkar-category-btn:hover,
+.azkar-category-btn.active {
+  color: #fff;
+  background-color: var(--brand-700);
+  border-color: var(--brand-700);
+  box-shadow: 0 8px 20px rgba(15, 61, 62, 0.2);
+}
+
+.azkar-content-wrap {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 10px;
+  gap: 0.95rem;
+}
+
+.azkar-selected-title {
+  font-family: "El Messiri", "Cairo", sans-serif;
+  color: var(--brand-900);
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+.azkar-card {
+  border: 1px solid rgba(31, 107, 99, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(165deg, #ffffff, #f3faf7);
+  box-shadow: 0 10px 24px rgba(7, 44, 45, 0.1);
+}
+
+.azkar-content {
+  font-family: "Noto Naskh Arabic", "Amiri", serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  line-height: 1.9;
+  color: #183236;
+}
+
+.azkar-description,
+.azkar-reference {
+  font-size: 0.95rem;
+  color: rgba(23, 50, 52, 0.78);
+}
+
+.azkar-recitation {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--brand-800);
+  font-weight: 700;
+}
+
+.azkar-count-btn {
+  border-radius: 999px;
+  background-color: var(--brand-700);
+  color: #fff;
+  border: 1px solid var(--brand-700);
+  min-width: 130px;
+}
+
+.azkar-count-btn:hover,
+.azkar-count-btn:focus {
+  background-color: var(--brand-800);
+  color: #fff;
+  border-color: var(--brand-800);
+}
+
+.azkar-count-btn:disabled {
+  background-color: #8caeaa;
+  border-color: #8caeaa;
+  color: #eef4f3;
+}
+
+.azkar-status {
+  color: var(--brand-800);
+  font-weight: 600;
+}
+
+/**** Quran section **********************************/
+.quran-section {
+  padding-top: 1rem;
+  padding-bottom: 1.25rem;
+}
+
+.quran-title,
+.prayer-title,
+.podcast-title {
+  text-shadow: 0 5px 14px rgba(12, 56, 55, 0.12);
+}
+
+.quran-subtitle {
+  margin-bottom: 1.4rem;
+}
+
+.quran-status {
+  color: var(--brand-700);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.quran-status-error {
+  color: #9f2f2f;
+}
+
+.surah-btn {
+  width: 100%;
+  min-height: 130px;
+  border: 1px solid rgba(31, 107, 99, 0.18);
+  border-radius: 16px;
+  background: linear-gradient(160deg, #ffffff, #f2faf7);
+  box-shadow: 0 8px 18px rgba(9, 49, 49, 0.1);
+  padding: 0.95rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.3rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.surah-btn:hover,
+.surah-btn:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(31, 107, 99, 0.4);
+  box-shadow: 0 14px 22px rgba(8, 46, 43, 0.16);
+}
+
+.surah-index {
+  font-size: 0.85rem;
+  color: var(--accent-300);
+  font-weight: 700;
+}
+
+.surah-ar {
+  font-family: "Noto Naskh Arabic", "Amiri", serif;
+  color: var(--brand-900);
+  font-size: 1.45rem;
+  line-height: 1.35;
+}
+
+.surah-en {
+  color: rgba(23, 50, 52, 0.75);
+  font-size: 0.94rem;
+  direction: ltr;
+}
+
+.quran-modal {
+  background-color: rgba(6, 24, 26, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.quran-modal .modal-content {
+  border: 1px solid rgba(214, 179, 106, 0.25);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.quran-modal-header {
+  background: linear-gradient(100deg, var(--brand-900), var(--brand-700));
+  color: #fff;
+  border-bottom: 1px solid rgba(243, 220, 167, 0.3);
+}
+
+.quran-modal-title {
+  font-family: "El Messiri", "Cairo", sans-serif;
+  font-size: 1.55rem;
+  margin-bottom: 0.2rem;
+}
+
+.quran-modal-meta {
+  color: rgba(255, 243, 214, 0.88);
+  font-size: 0.93rem;
+}
+
+.quran-modal-body {
+  background-color: #fcfffe;
+}
+
+.quran-ayat-container {
+  max-height: 65vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.25rem 0.2rem;
   direction: rtl;
 }
 
-/* تنسيق الآية نفسها */
-.verse-item {
-  font-size: 22px;
-  text-align: right;
-  font-family: "Amiri", serif; /* استخدام خط مناسب للآيات */
+.bismillah {
+  font-family: "Noto Naskh Arabic", "Amiri", serif;
+  font-size: clamp(1.6rem, 2.8vw, 2rem);
+  text-align: center;
+  margin-bottom: 0.7rem;
+  color: var(--brand-900);
+  background-color: rgba(236, 244, 242, 0.8);
+  border-radius: 14px;
+  padding: 0.45rem 0.6rem;
 }
 
-/* رقم الآية يأتي بعد النص */
-.verse-number {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-  margin-left: 10px;
+.quran-verse {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.7rem;
+  border: 1px solid rgba(31, 107, 99, 0.12);
+  border-radius: 14px;
+  padding: 0.75rem 0.85rem;
+  background-color: #ffffff;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-:root {
-  --hue: 223;
-  --bg: hsl(var(--hue), 10%, 100%);
-  --fg: hsl(var(--hue), 10%, 0%);
-  --primary: hsl(var(--hue), 90%, 55%);
-  --primaryT: hsla(var(--hue), 90%, 55%, 0);
-  --transDur: 0.3s;
+.quran-verse:hover {
+  background-color: #f7fcfa;
+  border-color: rgba(31, 107, 99, 0.24);
 }
 
-/* Navbar */
-.navbar {
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.quran-verse-text {
+  font-family: "Noto Naskh Arabic", "Amiri", serif;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  line-height: 2.05;
+  color: #1a3032;
 }
 
-.navbar-brand img {
-  height: 50px;
-  width: auto;
+.quran-verse-number {
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background-color: var(--brand-700);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.quran-modal-footer {
+  background-color: #f6fbf9;
+}
+
+.quran-close-btn {
+  background-color: var(--brand-700);
+  color: #fff;
+  border: 1px solid var(--brand-700);
+  min-width: 100px;
+}
+
+.quran-close-btn:hover,
+.quran-close-btn:focus {
+  background-color: var(--brand-800);
+  color: #fff;
+  border-color: var(--brand-800);
+}
+
+@media (max-width: 767.98px) {
+  .quran-verse {
+    flex-direction: column;
+  }
+
+  .quran-verse-number {
+    align-self: flex-end;
+  }
+}
+
 .btn-primary {
-  color: #2c3e50;
-  background-color: #f5f5f5;
+  color: #fff8ea;
+  background-color: var(--brand-700);
+  border-color: var(--brand-700);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #fff8ea;
+  background-color: var(--brand-800);
+  border-color: var(--brand-800);
+}
+
+:root[data-bs-theme="dark"] body {
+  background-color: var(--brand-100);
+  color: var(--text-main);
+}
+
+:root[data-bs-theme="dark"] .section-subtitle,
+:root[data-bs-theme="dark"] .azkar-description,
+:root[data-bs-theme="dark"] .azkar-reference,
+:root[data-bs-theme="dark"] .surah-en,
+:root[data-bs-theme="dark"] .quran-modal-meta {
+  color: rgba(230, 243, 239, 0.84);
+}
+
+:root[data-bs-theme="dark"] .azkar-card,
+:root[data-bs-theme="dark"] .surah-btn,
+:root[data-bs-theme="dark"] .quran-verse {
+  background: linear-gradient(165deg, #132225, #0f1b1f);
+  border-color: rgba(116, 201, 188, 0.25);
+  box-shadow: 0 12px 24px rgba(2, 13, 14, 0.32);
+}
+
+:root[data-bs-theme="dark"] .azkar-content,
+:root[data-bs-theme="dark"] .surah-ar,
+:root[data-bs-theme="dark"] .quran-verse-text {
+  color: #e6f4f0;
+}
+
+:root[data-bs-theme="dark"] .quran-modal-body,
+:root[data-bs-theme="dark"] .quran-modal-footer {
+  background-color: #102023;
+}
+
+:root[data-bs-theme="dark"] .bismillah {
+  background-color: rgba(19, 34, 37, 0.95);
+  color: #f0fbf8;
+}
+
+:root[data-bs-theme="dark"] .azkar-category-btn {
+  background-color: #112226;
+  border-color: rgba(116, 201, 188, 0.42);
+  color: #d8efea;
+}
+
+:root[data-bs-theme="dark"] .azkar-category-btn:hover,
+:root[data-bs-theme="dark"] .azkar-category-btn.active {
+  background-color: var(--brand-700);
+  color: #fff;
+}
+
+:root[data-bs-theme="dark"] .hero-section .container {
+  background-color: rgba(3, 11, 13, 0.58);
+  border-color: rgba(240, 221, 177, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-title {
+    animation: none;
+  }
 }
