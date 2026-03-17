@@ -19,7 +19,7 @@
   "scripts": {
     "predeploy": "npm run build && npm run copy-readme",
     "copy-readme": "node -e \"require('fs').copyFileSync('README.md', 'build/README.md')\"",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build --repo https://github.com/NourhanSamy7654/websit-eslamic.git",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
