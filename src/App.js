@@ -12,7 +12,7 @@ import "./Componant/Com.css";
 import PrayerTimes from "./Componant/PrayTime.js";
 import BodCast from "./Componant/BodCast.js";
 import Footer from "./Componant/Footer.js";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 const THEME_STORAGE_KEY = "azkar-theme";
 
@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className={`app-shell theme-${theme}`}>
-      <BrowserRouter>
+      <HashRouter>
         <Navbar
           scrollToSection={scrollToSection}
           azkarRef={azkarRef}
@@ -90,7 +90,7 @@ function App() {
           </section>
         </div>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
